@@ -1,42 +1,5 @@
-class Pizza:
-    def __init__(self, name, price, ingredients):
-        self.name = name
-        self.price = price
-        self.ingredients = ingredients
-
-    def prepare(self):
-        print(f"Подготавливаем пиццу: {self.name}")
-        print(f"Добавляем ингредиенты: {', '.join(self.ingredients)}")
-        print("Выпекаем...")
-        print("Нарезаем и упаковываем...")
-        print("Пицца готова!")
-
-    def __str__(self):
-        return f"{self.name} - {self.price} руб."
-
-
-class Order:
-    def __init__(self):
-        self.items = []
-
-    def add_pizza(self, pizza):
-        self.items.append(pizza)
-
-    def calculate_total(self):
-        total = 0
-        for pizza in self.items:
-            total += pizza.price
-        return total
-
-    def __str__(self):
-        if not self.items:
-            return "В заказе нет пицц."
-        order_str = "Заказ:\n"
-        for pizza in self.items:
-            order_str += f"  - {pizza}\n"
-        order_str += f"Итого: {self.calculate_total()} руб."
-        return order_str
-
+from pizza import Pizza
+from order import Order
 
 class Terminal:
     def __init__(self):
@@ -100,12 +63,3 @@ class Terminal:
             for pizza in order.items:
                 pizza.prepare()
             print("\nВаш заказ готовится. Спасибо за ваш заказ!\n")
-
-
-# Основной цикл программы
-terminal = Terminal()
-order = terminal.take_order()
-if order.items:
-    terminal.fulfill_order(order)
-else:
-    print("Вы не заказали ни одной пиццы.")

@@ -1,3 +1,5 @@
+# roman.py
+
 class Roman:
     roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 
@@ -58,7 +60,7 @@ class Roman:
         if not 0 < num < 4000:
             raise ValueError("Число должно быть в диапазоне от 1 до 3999")
 
-        roman_map = { 1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C', 400: 'CD', 500: 'D', 900: 'CM', 1000: 'M'}
+        roman_map = {1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C', 400: 'CD', 500: 'D', 900: 'CM', 1000: 'M'}
         i = 12
         result = ""
 
@@ -83,16 +85,3 @@ class Roman:
                 result += roman_map[roman_num[i]]
                 i += 1
         return result
-
-
-# Примеры использования:
-num1 = Roman("XIV")
-num2 = Roman(6)
-
-print(f"{num1} + {num2} = {num1 + num2}")
-print(f"{num1} - {num2} = {num1 - num2}")
-print(f"{num1} * {num2} = {num1 * num2}")
-print(f"{num1} / {num2} = {num1 / num2}")
-
-print(f"Римское представление числа 1998: {Roman.to_roman(1998)}")
-print(f"Десятичное представление числа MCMXCVIII: {Roman.from_roman('MCMXCVIII')}")
