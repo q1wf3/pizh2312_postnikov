@@ -124,7 +124,6 @@ public:
         }
     }
 
-    // Overloaded setInfo methods
     void setInfo(std::string name, std::string phone) {
         __name = name;
         __phone = phone;
@@ -159,33 +158,29 @@ public:
 int main() {
     // Демонстрация всех конструкторов
     
-    // 1. Конструкторы Employee
     std::cout << "\n=== Создание сотрудников ===" << std::endl;
-    Employee emp1; // без параметров
-    Employee emp2("Алексей Алексеев", "Аналитик", "2021-05-20"); // с параметрами
-    Employee emp3(emp2); // копирования
+    Employee emp1;
+    Employee emp2("Алексей Алексеев", "Аналитик", "2021-05-20");
+    Employee emp3(emp2); 
     
-    // 2. Конструкторы Department
+    //Конструкторы Department
     std::cout << "\n=== Создание отделов ===" << std::endl;
     Department dep1; // без параметров
     Department dep2("Отдел кадров", "987-65-43"); // с параметрами
     
-    // 3. Использование новых методов
     std::cout << "\n=== Использование новых методов ===" << std::endl;
     Department dep3("Тестовый отдел", "111-11-11");
     
     // Создание и добавление нового сотрудника
     dep3.createAndAddEmployee("Мария Иванова", "Дизайнер", "2023-01-10");
     
-    // Создание копий сотрудника
     Employee empToCopy("Сергей Сергеев", "Менеджер", "2020-11-15");
     dep3.addCopiesOfEmployee(empToCopy, 2);
     
-    // 4. Вывод информации
+    // Вывод информации
     std::cout << "\n=== Информация об отделах ===" << std::endl;
     dep3.displayDepartmentInfo();
     
-    // 5. Конструктор копирования Department
     std::cout << "\n=== Копирование отдела ===" << std::endl;
     Department dep4(dep3);
     dep4.displayDepartmentInfo();
