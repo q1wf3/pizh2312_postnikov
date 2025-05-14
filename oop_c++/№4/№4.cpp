@@ -91,19 +91,19 @@ public:
 };
 
 int main() {
-    // 4. Массив объектов базового класса
+    //Массив объектов базового класса
     std::vector<std::unique_ptr<Employee>> employees;
     employees.push_back(std::make_unique<CurrentEmployee>("Иван Иванов", "Программист", "2020-01-15", 100000));
     employees.push_back(std::make_unique<FormerEmployee>("Петр Петров", "Менеджер", "2018-03-10", "2023-01-20", "Увольнение"));
     employees.push_back(std::make_unique<CurrentEmployee>("Мария Сидорова", "Дизайнер", "2021-11-15", 90000));
 
-    // 5. Вывод данных (полиморфизм)
+    //Вывод данных (полиморфизм)
     std::cout << "=== Вывод массива сотрудников ===" << std::endl;
     for (const auto& emp : employees) {
         emp->printFullInfo();
     }
 
-    // 7. Демонстрация работы с Department
+    //Демонстрация работы с Department
     Department dev("Разработка", "123-45-67");
     dev.addEmployee(std::make_unique<CurrentEmployee>("Алексей Алексеев", "Тестировщик", "2022-06-01", 80000));
     dev.addEmployee(std::make_unique<FormerEmployee>("Ольга Петрова", "Аналитик", "2019-05-20", "2023-02-15", "Собственное желание"));
